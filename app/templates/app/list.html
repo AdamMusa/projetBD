@@ -1,0 +1,45 @@
+<div class="container">
+
+    {% if messages %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {% for message in messages %}
+            <strong>{{message}}</strong>
+            {% endfor %}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+    </div>
+    {% endif %}
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Prenom</th>
+                    <th scope="col">Matricule</th>
+                    <th scope="col">Établissement</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                {% for study in studies %}
+                <tr>
+                        <td>{{study.first_name}}</td>
+                        <td>{{study.last_name}}</td>
+                        <td>{{study.serial_number}}</td>
+                        <td>{{study.label}}</td>
+                        <td><a class="btn btn-primary" href="{% url 'app:edit' study.pk %}">Éditer</a> &ensp; <a class="btn btn-danger" href="{% url 'app:delete' study.pk %}">Supprimer</a></td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td class="text-center" colspan="6">Aucun étudiant enregistrer</td>
+                    </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+
+        <a class="btn btn-secondary" href="{% url 'app:create' %}">Ajouter un étudiant</a>
+
+    </div>

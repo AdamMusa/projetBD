@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+img{
+  width: 120px;
+  display: block;
+  height: 120;
+}
+h2{
+  text-transform: uppercase;
+  text-justify: auto;
+}
+</style>
+<div><br><br></div>
+<h2 class="text-center"> <mark> PROJET DE GESTIONS DE BASE DE DONNÉES  </mark>
+  <style>mark{background-color: orange;}</style>
+</h2>
+<br><br>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-8">
+        {% include 'app/list.html' with studies=studies %}
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header" id="id">
+              <style> #id{color: rebeccapurples;}</style> 
+              Infos du Developpeur
+            </div>
+            <img class="card-img-top" src="{% static 'img/adam.jpg' %}" alt="">
+            <br>
+            <div class="card-body">
+              <br><br>
+              <h5 class="card-title text-justify">Nom : Adam </h5>
+              <h5 class="card-text text-justify">Prenom : Moussa Ali</h5>
+              <h5 class="card-text text-justify">Niveau : L2IN</h5>
+              <h5 class="card-text text-justify">Matricule : 17A264FS</h5>
+            </div>
+          </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

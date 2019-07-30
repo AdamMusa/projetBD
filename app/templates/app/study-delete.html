@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Suppression
+{% endblock title %}
+
+{% block content %}
+  <div class="container">
+    <form method="POST">
+      {% csrf_token %}
+        <p>Vous êtes sur le point de supprimer l'étudiant {{object}}.</p>
+        <p><a class="btn btn-default" href="{% url 'app:list' %}">Annuler</a> &ensp; <button type="submit" class="btn btn-success">Continuer</button></p>
+    </form>
+  </div>
+{% endblock content %}

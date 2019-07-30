@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Liste des étudiants
+{% endblock title %}
+
+{% block content %}
+<br><br>
+<h2 class="text-center"> <mark> LA LISTE DES ÉTUDIANTS </mark></h2>
+<style>mark{ background-color: aqua;}</style>
+<br><br>
+{% include 'app/list.html' with studies=studies %}
+
+<div class="container">
+    <br>
+    <a class="btn btn-success pull-right" href="{% url 'app:index' %}"> Page d'acceuil</a>
+
+</div>
+{% endblock content %}

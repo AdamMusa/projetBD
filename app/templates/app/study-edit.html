@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{context.title}}
+{% endblock title %}
+
+{% block content %}
+
+<div class="container">
+    <br>
+    <h4 class="text-center">{{context.title}} </h4>
+
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="exampleInputEmail1">{{form.first_name.label_tag}} </label>
+            {{form.first_name}}
+            {{form.errors.first_name}}
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">{{form.last_name.label_tag}} </label>
+            {{form.last_name}}
+            {{form.errors.last_name}}
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputPassword1">{{form.serial_number.label_tag}}</label>
+            {{form.serial_number}}
+            {{form.errors.serial_number}}
+            <small id="emailHelp" class="form-text text-muted">{{form.serial_number.help_text}}</small>
+        </div>
+        <p>Les informations sur l'établissement</p>
+        <div class="form-group">
+            <label for="exampleInputPassword1">{{form.school_name.label_tag}}</label>
+            {{form.label}}
+            {{form.errors.school_name}}
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">{{form.code.label_tag}}</label>
+            {{form.code}}
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">{{form.boite_postal.label_tag}}</label>
+            {{form.post_box}}
+            
+        </div>
+        <button type="submit" class="btn btn-primary">{{context.action}}</button>&ensp;
+        <a href="{% url 'app:list' %}" class="btn btn-secondary pull-right">Afficher la liste</a>
+    </form>
+    <br>
+    <a class="btn btn-success pull-right" href="{% url 'app:index' %}">Page d'acceuil</a>
+</div>
+
+{% endblock content %}
